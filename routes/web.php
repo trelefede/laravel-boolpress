@@ -17,7 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Auth::routes();
+
+Route::get('/', function(){
+    return view('guest.home');
+})->name('index');
 
 Route::middleware('auth')
     ->namespace('Admin')
@@ -25,7 +30,7 @@ Route::middleware('auth')
     ->prefix('admin')
     ->group(function (){
         Route::get('/', 'HomeController@index')
-        ->name('home');
+        ->name('index');
         Route::resource('posts', 'PostController');
     });
 
