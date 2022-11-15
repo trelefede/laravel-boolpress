@@ -87,6 +87,7 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         //
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**
@@ -99,6 +100,28 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         //
+        $request->validate([
+            'title' => 'required|min:2|max:255',
+            'content' => 'required'
+        ]);
+
+        $data = $request->all();
+        if($post->title != $data['title']){
+            $slug = Str::slug($post->title);
+            $slug_base = $slug;
+            $counter = 1;
+            $existingPost = Post::where('slug', $slug)->first();
+            while($existingPost){
+                $slug = $slug_base . '_' . $counter;
+                $counter++;
+                $existingPost = Post::where('slug', $slug)->first();
+            }
+
+            $data['slug'] = $slug;
+        }
+
+        $post->update($data);
+        return redirect()->route('admin.posts.show', $post);
     }
 
     /**
