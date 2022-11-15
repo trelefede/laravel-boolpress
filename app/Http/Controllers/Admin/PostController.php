@@ -40,6 +40,29 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'title' => 'required|min:2|max:255',
+            'content' => 'required'
+        ]);
+
+        $data = $request->all();
+        $post = new Post();
+        $post->fill($data);
+
+        $slug = Str::slug($post->title);
+        $slug_base = $slug;
+        $counter = 1;
+        $existingPost = Post::where('slug', $slug)->first();
+        while($existingPost){
+            $slug = $slug_base . '_' . $counter;
+            $counter++;
+            $existingPost = Post::where('slug', $slug)->first();
+        }
+
+        $post->slug = $slug;
+        $post->save();
+
+        return redirect()->route('admin.posts.show', $post->id);
     }
 
     /**
