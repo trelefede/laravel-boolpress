@@ -4,6 +4,8 @@
     <form method="POST" action="{{ route('admin.posts.update', $post->id) }}">
         @csrf
         @method('PATCH')
+
+        {{-- titolo --}}
         <div>
             <label for="title">Titolo:</label>
             <input type="text" name="title" required minlength="2" maxlength="255"
@@ -12,6 +14,21 @@
                 <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
+
+        {{-- categorie --}}
+        <div>
+            <label for="category_id">Categoria:</label>
+            <select name="category_id">
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}"
+                        {{ $category->id == old('category_id', $post->category_id) ? 'selected' : '' }}>
+                        {{ $category->name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
+        {{-- contenuto --}}
         <div>
             <label for="content">Contenuto:</label>
             <textarea name="content" cols="30" rows="10" required>{{ old('content', $post->content) }}</textarea>
