@@ -15,8 +15,8 @@
 
         {{-- categorie --}}
         <div>
-            <label for="category-id">Categoria:</label>
-            <select name="category-id">
+            <label for="category_id">Categoria:</label>
+            <select name="category_id">
                 @foreach ($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
