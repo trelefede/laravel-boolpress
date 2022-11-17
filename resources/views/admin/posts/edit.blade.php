@@ -36,6 +36,20 @@
                 <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
+
+        {{-- tags --}}
+        <div>
+            <h6>Tag</h6>
+            @foreach ($tags as $tag)
+                <label for="tags">{{ $tag->name }}</label>
+                <input type="checkbox" name="tags[]" value={{ $tag->id }}
+                    {{ $post->tags->contains($tag) ? 'checked' : '' }}>
+            @endforeach
+            @error('tags')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
+
         <div>
             <input type="submit" value="Aggiorna">
         </div>
