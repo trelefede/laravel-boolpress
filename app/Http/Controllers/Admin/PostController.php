@@ -56,10 +56,6 @@ class PostController extends Controller
         $post = new Post();
         $post->fill($data);
 
-        if(array_key_exists('tags', $data)){
-            $post->tags()->sync($data['tags']);
-        }
-
         $slug = Str::slug($post->title);
         $slug_base = $slug;
         $counter = 1;
@@ -72,6 +68,10 @@ class PostController extends Controller
 
         $post->slug = $slug;
         $post->save();
+
+        if(array_key_exists('tags', $data)){
+            $post->tags()->sync($data['tags']);
+        }
 
         return redirect()->route('admin.posts.show', $post->id);
     }
