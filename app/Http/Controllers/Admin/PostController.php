@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Post;
 use App\Category;
+use App\Tag;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -31,7 +32,8 @@ class PostController extends Controller
     {
         //
         $categories = Category::all();
-        return view('admin.posts.create', compact('categories'));
+        $tags = Tag::all();
+        return view('admin.posts.create', compact(['categories', 'tags']));
     }
 
     /**
@@ -46,12 +48,17 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|min:2|max:255',
             'content' => 'required',
-            'category_id' => 'nullable|exists:categories,id'
+            'category_id' => 'nullable|exists:categories,id',
+            'tags' => 'exists:tags,id'
         ]);
 
         $data = $request->all();
         $post = new Post();
         $post->fill($data);
+
+        if(array_key_exists('tags', $data)){
+            $post->tags()->sync($data['tags']);
+        }
 
         $slug = Str::slug($post->title);
         $slug_base = $slug;
@@ -91,7 +98,8 @@ class PostController extends Controller
     {
         //
         $categories = Category::all();
-        return view('admin.posts.edit', compact(['post', 'categories']));
+        $tags = Tag::all();
+        return view('admin.posts.edit', compact(['post', 'categories', 'tags']));
     }
 
     /**
@@ -125,6 +133,12 @@ class PostController extends Controller
             $data['slug'] = $slug;
         }
 
+        if(array_key_exists('tags', $data)){
+            $post->tags()->sync($data['tags']);
+        }else{
+            $post->tags()->sync([]);
+        }
+
         $post->update($data);
         return redirect()->route('admin.posts.show', $post);
     }
@@ -138,6 +152,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+        $post->tags()->sync([]);
         $post->delete();
         return redirect()->route('admin.posts.index');
     }
