@@ -33,6 +33,20 @@
                 <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
+
+        {{-- tags --}}
+        <div>
+            <h6>Tag</h6>
+            @foreach ($tags as $tag)
+                <label for="tags">{{ $tag->name }}</label>
+                <input type="checkbox" name="tags[]" value={{ $tag->id }}
+                    {{ in_array($tag->id, old('tags', [])) ? 'checked' : '' }}>
+            @endforeach
+            @error('tags')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
+
         <div>
             <input type="submit" value="Posta">
         </div>
