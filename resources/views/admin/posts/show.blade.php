@@ -11,6 +11,14 @@
         <p>Nessuna categoria</p>
     @endif
 
+    {{-- tags --}}
+    <div class="mb-4 ">
+        <span>Tags:</span>
+        @foreach ($post->tags as $tag)
+            <span>{{ $tag->name }}</span>
+        @endforeach
+    </div>
+
     <a href="{{ route('admin.posts.edit', $post->id) }}" class="mt-3">Modifica</a>
     <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
         @csrf
