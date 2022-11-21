@@ -16,7 +16,19 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts = Post::all();
+        try {
+            $posts = Post::all();
+            $data = [
+                'response' => $posts,
+                'status' => true
+            ];
+        } catch (\Throwable $th) {
+            $data = [
+                'response' => $e->message,
+                'status' => false
+            ];
+        }
+
         return response()->json($posts);
     }
 
