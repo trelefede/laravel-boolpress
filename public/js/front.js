@@ -1913,17 +1913,18 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       posts: [],
-      error: ''
+      errorMessage: ''
     };
   },
   mounted: function mounted() {
     var _this = this;
-    axios.get('api/posts').then(function (_ref) {
+    console.log('PostComponent');
+    axios.get('/api/posts').then(function (_ref) {
       var data = _ref.data;
-      if (data.succes) {
+      if (data.success) {
         _this.posts = data.results;
       } else {
-        _this.error = data.error;
+        _this.errorMessage = data.error;
       }
     });
   }
@@ -1967,11 +1968,11 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "container"
-  }, _vm._l(_vm.posts, function (post) {
+  }, [_vm._l(_vm.posts, function (post) {
     return _c("div", {
       key: post.id
     }, [_vm._v("\n        " + _vm._s(post.title) + "\n    ")]);
-  }), 0);
+  }), _vm._v("\n    cacca\n")], 2);
 };
 var staticRenderFns = [];
 render._withStripped = true;

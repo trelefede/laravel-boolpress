@@ -3,6 +3,7 @@
         <div v-for="post in posts" :key="post.id">
             {{ post.title }}
         </div>
+        cacca
     </div>
 </template>
 
@@ -12,17 +13,19 @@
         data(){
             return{
                 posts: [],
-                error: ''
+                errorMessage: ''
             }
         },
         mounted(){
-            axios.get('api/posts').then(({data})=>{
-                if(data.succes){
+            console.log('PostComponent');
+
+            axios.get('/api/posts').then(({data})=>{
+                if(data.success){
                     this.posts = data.results;
                 }else{
-                    this.error = data.error;
+                    this.errorMessage = data.error;
                 }
             })
-        },
+        }
     }
 </script>
