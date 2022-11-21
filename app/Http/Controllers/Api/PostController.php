@@ -22,7 +22,7 @@ class PostController extends Controller
                 'response' => $posts,
                 'status' => true
             ];
-        } catch (\Throwable $th) {
+        } catch(Error $e) {
             $data = [
                 'response' => $e->message,
                 'status' => false
