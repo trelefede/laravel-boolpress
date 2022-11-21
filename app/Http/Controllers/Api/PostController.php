@@ -19,13 +19,13 @@ class PostController extends Controller
         try {
             $posts = Post::all();
             $data = [
-                'response' => $posts,
-                'status' => true
+                'results' => $posts,
+                'success' => true
             ];
         } catch(Error $e) {
             $data = [
-                'response' => $e->message,
-                'status' => false
+                'error' => $e->message,
+                'success' => false
             ];
         }
 
