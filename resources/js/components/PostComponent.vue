@@ -1,23 +1,28 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
-
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
-                </div>
-            </div>
+        <div v-for="post in posts" :key="post.id">
+            {{ post.title }}
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
+        name: 'PostComponent',
+        data(){
+            return{
+                posts: [],
+                error: ''
+            }
+        },
+        mounted(){
+            axios.get('api/posts').then(({data})=>{
+                if(data.succes){
+                    this.posts = data.results;
+                }else{
+                    this.error = data.error;
+                }
+            })
+        },
     }
 </script>
