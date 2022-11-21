@@ -18,4 +18,4 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/posts', 'Admin\PostController@index');
+Route::get('/posts', 'Api\PostController@index');
