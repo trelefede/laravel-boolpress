@@ -1,12 +1,15 @@
 <template>
     <div>
-        work
+        <PostComponent />
     </div>
 </template>
 
 <script>
+import PostComponent from '../components/PostComponent.vue';
+
 export default {
-    name:'App'
+    name:'App',
+    components: {PostComponent}
 }
 </script>
 
