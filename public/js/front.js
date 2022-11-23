@@ -1968,11 +1968,11 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "container"
-  }, [_vm._l(_vm.posts, function (post) {
+  }, _vm._l(_vm.posts, function (post) {
     return _c("div", {
       key: post.id
-    }, [_vm._v("\n        " + _vm._s(post.title) + "\n    ")]);
-  }), _vm._v("\n    cacca\n")], 2);
+    }, [_c("h4", [_vm._v(_vm._s(post.title))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(post.content))]), _vm._v(" "), _c("hr")]);
+  }), 0);
 };
 var staticRenderFns = [];
 render._withStripped = true;
