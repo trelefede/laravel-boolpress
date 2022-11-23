@@ -22,14 +22,14 @@ class PostController extends Controller
                 'results' => $posts,
                 'success' => true
             ];
-        } catch(Error $e) {
+        } catch (Error $e) {
             $data = [
                 'error' => $e->message,
                 'success' => false
             ];
         }
 
-        return response()->json($posts);
+        return response()->json($data);
     }
 
     /**
