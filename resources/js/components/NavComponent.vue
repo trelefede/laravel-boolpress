@@ -1,6 +1,6 @@
 <template>
     <div>
-        <ul>
+        <ul class="d-flex">
             <li>
                 <router-link to="/">Home</router-link>
             </li>
@@ -21,5 +21,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+ul {
+    li {
+        list-style-type: none;
+        margin: 0 1rem;
+    }
+}
 </style>
