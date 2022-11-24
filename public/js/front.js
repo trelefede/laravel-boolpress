@@ -2161,9 +2161,9 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", [_c("h2", [_vm._v("Error 404 - Not Found")]), _vm._v(" "), _c("router-link", {
     attrs: {
-      to: "/"
+      to: "/home"
     }
-  }, [_vm._v("Go t o Home")])], 1);
+  }, [_vm._v("Go to Home")])], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
