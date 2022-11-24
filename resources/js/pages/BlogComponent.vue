@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+        <h4 class="mb-4">Blog</h4>
         <div v-for="post in posts" :key="post.id">
             <h4>{{ post.title }}</h4>
             <p>{{ post.content }}</p>

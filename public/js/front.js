@@ -2086,7 +2086,9 @@ var render = function render() {
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("h4", [_vm._v("Chi Siamo")])]);
+  return _c("div", {
+    staticClass: "container"
+  }, [_c("div", [_c("h4", [_vm._v("Chi Siamo")])])]);
 }];
 render._withStripped = true;
 
@@ -2109,11 +2111,13 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "container"
-  }, _vm._l(_vm.posts, function (post) {
+  }, [_c("h4", {
+    staticClass: "mb-4"
+  }, [_vm._v("Blog")]), _vm._v(" "), _vm._l(_vm.posts, function (post) {
     return _c("div", {
       key: post.id
     }, [_c("h4", [_vm._v(_vm._s(post.title))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(post.content))]), _vm._v(" "), _c("hr")]);
-  }), 0);
+  })], 2);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -2140,7 +2144,9 @@ var render = function render() {
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("h4", [_vm._v("Contatti")])]);
+  return _c("div", {
+    staticClass: "container"
+  }, [_c("div", [_c("h4", [_vm._v("Contatti")])])]);
 }];
 render._withStripped = true;
 
@@ -2166,7 +2172,9 @@ var render = function render() {
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("h2", [_vm._v("Home")])]);
+  return _c("div", {
+    staticClass: "container"
+  }, [_c("div", [_c("h4", [_vm._v("Home")])])]);
 }];
 render._withStripped = true;
 
@@ -2187,11 +2195,13 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("h2", [_vm._v("Error 404 - Not Found")]), _vm._v(" "), _c("router-link", {
+  return _c("div", {
+    staticClass: "container"
+  }, [_c("div", [_c("h2", [_vm._v("Error 404 - Not Found")]), _vm._v(" "), _c("router-link", {
     attrs: {
       to: "/home"
     }
-  }, [_vm._v("Go to Home")])], 1);
+  }, [_vm._v("Go to Home")])], 1)]);
 };
 var staticRenderFns = [];
 render._withStripped = true;

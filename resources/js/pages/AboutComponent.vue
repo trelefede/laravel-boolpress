@@ -1,6 +1,8 @@
 <template>
-    <div>
-        <h4>Chi Siamo</h4>
+    <div class="container">
+        <div>
+            <h4>Chi Siamo</h4>
+        </div>
     </div>
 </template>
 
