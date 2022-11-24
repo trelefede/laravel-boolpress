@@ -3,6 +3,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 import PostsComponent from './pages/PostsComponent'
+import AboutComponent from './pages/AboutComponent'
 import NotFoundComponent from './pages/NotFoundComponent'
 
 Vue.use(VueRouter);
