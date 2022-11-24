@@ -2045,9 +2045,13 @@ var render = function render() {
     staticClass: "d-flex"
   }, [_c("li", [_c("router-link", {
     attrs: {
-      to: "/"
+      to: "/home"
     }
   }, [_vm._v("Home")])], 1), _vm._v(" "), _c("li", [_c("router-link", {
+    attrs: {
+      to: "/blog"
+    }
+  }, [_vm._v("Blog")])], 1), _vm._v(" "), _c("li", [_c("router-link", {
     attrs: {
       to: "/about"
     }
@@ -6595,7 +6599,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "ul li[data-v-152c8205] {\n  list-style-type: none;\n  margin: 0 1rem;\n}", ""]);
+exports.push([module.i, "ul li[data-v-152c8205] {\n  list-style-type: none;\n  margin: 0 0.3rem;\n}", ""]);
 
 // exports
 

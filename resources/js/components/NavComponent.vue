@@ -2,7 +2,10 @@
     <div>
         <ul class="d-flex">
             <li>
-                <router-link to="/">Home</router-link>
+                <router-link to="/home">Home</router-link>
+            </li>
+            <li>
+                <router-link to="/blog">Blog</router-link>
             </li>
             <li>
                 <router-link to="/about">About</router-link>
@@ -24,7 +27,7 @@ export default {
 ul {
     li {
         list-style-type: none;
-        margin: 0 1rem;
+        margin: 0 0.3rem;
     }
 }
 </style>
