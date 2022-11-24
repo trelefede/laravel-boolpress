@@ -10,7 +10,7 @@
 
 <script>
 export default {
-    name: 'PostComponent',
+    name: 'PostsComponent',
     data() {
         return {
             posts: [],
@@ -18,7 +18,7 @@ export default {
         }
     },
     mounted() {
-        console.log('PostComponent');
+        console.log('PostsComponent');
 
         axios.get('/api/posts').then(({ data }) => {
             if (data.success) {
