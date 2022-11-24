@@ -1996,7 +1996,19 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div");
+  return _c("div", [_c("ul", [_c("li", [_c("router-link", {
+    attrs: {
+      to: "/"
+    }
+  }, [_vm._v("Home")])], 1), _vm._v(" "), _c("li", [_c("router-link", {
+    attrs: {
+      to: "/about"
+    }
+  }, [_vm._v("About")])], 1), _vm._v(" "), _c("li", [_c("router-link", {
+    attrs: {
+      to: "/contacts"
+    }
+  }, [_vm._v("Contacts")])], 1)])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -53187,6 +53199,14 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/',
     name: 'home',
     component: _pages_PostsComponent__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }, {
+    path: '/about',
+    name: 'about',
+    component: AboutComponent
+  }, {
+    path: '/contacts',
+    name: 'contacts',
+    component: ContactsComponent
   }, {
     path: '/*',
     name: 'notfound',
