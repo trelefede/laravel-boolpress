@@ -1,5 +1,7 @@
 <template>
-    <div>Contatti</div>
+    <div>
+        <h4>Contatti</h4>
+    </div>
 </template>
 
 <script>
